@@ -16,7 +16,7 @@ char buffer[20];
 
 const uint8_t keyMap[12][9] = {
   { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_SHIFT, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_1, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
+  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
   { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'z', 'a', 'q', '1' },                                       //2
   { '6', 0, '5', KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                                   //3
   { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                         //4
@@ -31,7 +31,7 @@ const uint8_t keyMap[12][9] = {
 
 const uint8_t altKeyMap[12][9] = {
   { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_SHIFT, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_1, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
+  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
   { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'Z', 'A', 'Q', '!' },                                       //2
   { KEY_KP_6, 0, KEY_KP_5, KEY_KP_4, 'X', 'S', 'W', '@', KEY_F1 },                                         //3
   { KEY_F11, 0, KEY_F8, KEY_NUM_LOCK, 'C', 'D', 'E', '#', KEY_F2 },                                        //4
@@ -99,6 +99,29 @@ void setup() {
   Keyboard.begin();
 }
 
+void writeKeyMatrix(uint16_t *value)
+{
+  digitalWrite(SR_SERIAL, (*value & 1));
+  digitalWrite(SR_SRCLK, LOW);
+  digitalWrite(SR_SRCLK, HIGH);
+  delay(1);
+  digitalWrite(SR_RCLK, HIGH);
+  digitalWrite(SR_RCLK, LOW);
+  *value = *value >> 1;
+}
+
+uint8_t getKey(const bool enableAltKeyMap, const uint8_t x, const uint8_t y)
+{
+  uint8_t key=0;
+  if (false == enableAltKeyMap) {
+    key = keyMap[x][y];
+  } else {
+    key = altKeyMap[x][y];
+  }
+  return key;
+}
+
+
 void loop() {
   uint16_t srValue = 0xFFFE;
   bool counterStarted = false;
@@ -113,14 +136,9 @@ void loop() {
     writeRegister(0xFFFF);
     srValue = 0xFFFE;
     for (int x = 0; x < 12; x++) {
-      digitalWrite(SR_SERIAL, (srValue & 1));
-      digitalWrite(SR_SRCLK, LOW);
-      digitalWrite(SR_SRCLK, HIGH);
-      delay(1);
-      digitalWrite(SR_RCLK, HIGH);
-      digitalWrite(SR_RCLK, LOW);
-      srValue = srValue >> 1;
-      if (millis() - timeLastKeyPress > 60) {
+      writeKeyMatrix(&srValue);
+
+      if (millis() - timeLastKeyPress > 100) {
         timeLastKeyPress = 0;
         lastKey = 0;
       }
@@ -140,14 +158,9 @@ void loop() {
         } else
 #endif
           if (digitalRead(y) == LOW) {
-
-          if (!caps) {
-            key = keyMap[x][y];
-          } else {
-            key = altKeyMap[x][y];
-          }
-          timeLastKeyPress = millis();
-          if (lastKey == key) {
+	    key = getKey(false, x, y);
+	    timeLastKeyPress = millis();
+	    if (lastKey == key) {
 
             if (counterStarted == false) {
               time = millis();
@@ -162,9 +175,6 @@ void loop() {
             counterStarted = false;
           }
           lastKey = key;
-          if (KEY_RUF == key) {
-            caps = (caps == true) ? false : true;
-          }
           //check if special key
           for (int keySpecial = 0; keySpecial < 5; keySpecial++) {
             if (specialKeys[keySpecial].id == key) {
@@ -182,7 +192,8 @@ void loop() {
           sprintf(buffer, "Key=%x x=%d y=%d", key, x, y);
           Keyboard.println(buffer);
 #endif
-          delay(20);
+          while(digitalRead(y) == LOW);
+          delay(10);
         }
       }
     }
