@@ -170,8 +170,6 @@ bool isSpecialKey(const uint8_t key){
   }
   return ret;
 }
-
-//void processKeyPress(const uint8_t key){
   
 
 void loop() {
@@ -184,6 +182,7 @@ void loop() {
   unsigned long time;
   unsigned long timeLastKeyPress;
   bool macroMode = false;
+  bool keyContinuePressed=false;
   while (1) {
     writeRegister(0xFFFF);
     srValue = 0xFFFE;
@@ -212,23 +211,31 @@ void loop() {
 	  }
 	    counterStarted = false;
 	  lastKey = key;
-	  //check if special key
 	  if(specialKey){
 	      Keyboard.press(key);
+	      while((digitalRead(y) == LOW));
+	      delay(10);
 	      break;
 	  }
 	    
 	  if (!specialKey) {
 	    Keyboard.write(key);
 	    Keyboard.releaseAll();
-	  }
+	    while((digitalRead(y) == LOW)){
+	      if((millis() - timeLastKeyPress) < 500){
+		continue;
+	      }
+	      else{
+		Keyboard.write(key);
+		delay(50);
+	      }
+	    }	
 	  specialKey = false;
 #ifdef DEBUG
 	  sprintf(buffer, "Key=%x x=%d y=%d", key, x, y);
 	  Keyboard.println(buffer);
 #endif
-	  while(digitalRead(y) == LOW);
-	  delay(10);
+	  }
 	}
       }
     }
