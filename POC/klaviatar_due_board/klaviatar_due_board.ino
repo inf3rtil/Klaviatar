@@ -10,10 +10,13 @@
 #define KEY_FUNC 0x01
 
 #define MACRO_MODE
+#define LAYOUT_MODE COMPAT
 
 char buffer[20];
 
 
+
+#ifndef LAYOUT_MODE == REAL
 const uint8_t keyMap[12][9] = {
   { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_SHIFT, 0, 0, 0, KEY_KP_MINUS },                              //0
   { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
@@ -43,6 +46,42 @@ const uint8_t altKeyMap[12][9] = {
   { ')', 0, 'P', ':', '?', '>', 'L', 'O', '(' },                                                           //10
   { 0, KEY_F12, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
 };
+
+#elif LAYOUT_MODE == COMPAT
+
+const uint8_t keyMap[12][9] = {
+  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },                              //0
+  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_FUNC, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
+  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_LEFT_ALT, 'z', 'a', 'q', '1' },                                       //2
+  { '6', 0, '5', KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                                   //3
+  { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                         //4
+  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'v', 'f', 'r', '4', KEY_F3 },                                        //5
+  { 0xFF, 0, KEY_RETURN, KEY_RIGHT_ARROW, ' ', 'b', 'g', 't', '5' },                                       //6
+  { '\\', 0, KEY_UP_ARROW, KEY_DOWN_ARROW, 'n', 'h', 'y', '6', KEY_F4 },                                   //7
+  { '=', 0, ']', '`', 'm', 'j', 'u', '7', KEY_F5 },                                                        //8
+  { '-', 0, '[', '\'', KEY_LEFT_ARROW, ',', 'k', 'i', '8' },                                               //9
+  { '0', 0, 'p', ';', '/', '.', 'l', 'o', '9' },                                                           //10
+  { 0, KEY_F10, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
+};
+
+const uint8_t altKeyMap[12][9] = {
+  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },                              //0
+  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_FUNC, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
+  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_LEFT_ALT, 'Z', 'A', 'Q', '!' },                                       //2
+  { KEY_KP_6, 0, KEY_KP_5, KEY_KP_4, 'X', 'S', 'W', '@', KEY_F1 },                                         //3
+  { KEY_F11, 0, KEY_F8, KEY_NUM_LOCK, 'C', 'D', 'E', '#', KEY_F2 },                                        //4
+  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'V', 'F', 'R', '$', KEY_F3 },                                        //5
+  { 0xFF, 0, KEY_RETURN, 0, ' ', 'B', 'G', 'T', '%' },                                                     //6
+  { '|', 0, KEY_UP_ARROW, 0, 'N', 'H', 'Y', '^', KEY_F4 },                                                 //7
+  { '+', 0, ']', '~', 'M', 'J', 'U', '&', KEY_F5 },                                                        //8
+  { '_', 0, '{', '¨', KEY_LEFT_ARROW, '<', 'K', 'I', '*' },                                                //9
+  { ')', 0, 'P', ':', '?', '>', 'L', 'O', '(' },                                                           //10
+  { 0, KEY_F12, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
+};
+
+#endif
+
+
 
 typedef struct {
   uint8_t id;
@@ -121,9 +160,22 @@ uint8_t getKey(const bool enableAltKeyMap, const uint8_t x, const uint8_t y)
   return key;
 }
 
+bool isSpecialKey(const uint8_t key){
+  bool ret=false;
+  for (int keySpecial = 0; keySpecial < 5; keySpecial++){
+    if (specialKeys[keySpecial].id == key) {
+      ret=true;
+      break;
+    }
+  }
+  return ret;
+}
+
+//void processKeyPress(const uint8_t key){
+  
 
 void loop() {
-  uint16_t srValue = 0xFFFE;
+  uint16_t srValue = 0xFFFF;
   bool counterStarted = false;
   bool specialKey = false;
   bool caps = false;
@@ -135,67 +187,51 @@ void loop() {
   while (1) {
     writeRegister(0xFFFF);
     srValue = 0xFFFE;
+    if (millis() - timeLastKeyPress > 100) {
+      timeLastKeyPress = 0;
+      lastKey = 0;
+    }  
     for (int x = 0; x < 12; x++) {
       writeKeyMatrix(&srValue);
-
-      if (millis() - timeLastKeyPress > 100) {
-        timeLastKeyPress = 0;
-        lastKey = 0;
-      }
       for (int y = 0; y < 9; y++) {
-#ifndef MACRO_MODE
-        for (int keySpecial = 0; keySpecial < 5; keySpecial++) {
-          if (specialKeys[keySpecial].x == x && specialKeys[keySpecial].y == y) {
-            digitalWrite(SR_nOE, HIGH);  //enable tristate, use aux circuit to detect
-            specialKey = true;
-            digitalWrite(SR_nOE, LOW);
-            break;
-          }
-        }
-        if (specialKey == true) {
-          specialKey = false;
-          continue;
-        } else
-#endif
-          if (digitalRead(y) == LOW) {
-	    key = getKey(false, x, y);
-	    timeLastKeyPress = millis();
-	    if (lastKey == key) {
-
-            if (counterStarted == false) {
-              time = millis();
-              counterStarted = true;
-              continue;
-            } else if ((millis() - time) > 500) {
-              counterStarted = false;
-            } else {
-              continue;
-            }
-          } else {
-            counterStarted = false;
-          }
-          lastKey = key;
-          //check if special key
-          for (int keySpecial = 0; keySpecial < 5; keySpecial++) {
-            if (specialKeys[keySpecial].id == key) {
-              Keyboard.press(key);
-              specialKey = true;
-              break;
-            }
-          }
-          if (!specialKey) {
-            Keyboard.write(key);
-            Keyboard.releaseAll();
-          }
-          specialKey = false;
+	if (digitalRead(y) == LOW) {
+	  timeLastKeyPress = millis();
+	  key = getKey(false, x, y);
+	  specialKey = isSpecialKey(key);
+	  
+	  if (lastKey == key) {
+	    if (counterStarted == false) {
+	      time = millis();
+	      counterStarted = true;
+	      continue;
+	    } else if ((millis() - time) > 500) {
+	      counterStarted = false;
+	    } else {
+	      continue;
+	    }
+	  }
+	    counterStarted = false;
+	  lastKey = key;
+	  //check if special key
+	  if(specialKey){
+	      Keyboard.press(key);
+	      break;
+	  }
+	    
+	  if (!specialKey) {
+	    Keyboard.write(key);
+	    Keyboard.releaseAll();
+	  }
+	  specialKey = false;
 #ifdef DEBUG
-          sprintf(buffer, "Key=%x x=%d y=%d", key, x, y);
-          Keyboard.println(buffer);
+	  sprintf(buffer, "Key=%x x=%d y=%d", key, x, y);
+	  Keyboard.println(buffer);
 #endif
-          while(digitalRead(y) == LOW);
-          delay(10);
-        }
+	  while(digitalRead(y) == LOW);
+	  delay(10);
+	}
       }
     }
   }
 }
+  
