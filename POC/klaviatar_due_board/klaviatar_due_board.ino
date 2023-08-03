@@ -1,11 +1,5 @@
 #include "Keyboard.h"
 
-#define SR_SERIAL 9
-#define SR_nOE 10
-#define SR_RCLK 16
-#define SR_SRCLK 14
-#define SR_nSRCLR 15
-
 #define KEY_RUF 0xFF
 #define KEY_FUNC 0x01
 
@@ -13,8 +7,6 @@
 #define LAYOUT_MODE COMPAT
 
 char buffer[20];
-
-
 
 #ifndef LAYOUT_MODE == REAL
 const uint8_t keyMap[12][9] = {
@@ -97,147 +89,33 @@ const specialKey_t specialKeys[5] = {
   { .id = KEY_FUNC, .x = 2, .y = 4 }
 };
 
-void writeRegister(uint16_t value) {
-  //digitalWrite(SR_nOE, HIGH); //3 state out on
-
-  //digitalWrite(SR_nSRCLR, LOW);
-  digitalWrite(SR_nSRCLR, HIGH);  //clear
-
-  for (uint8_t x = 0; x < 12; x++) {
-    digitalWrite(SR_SERIAL, (value & 1));
-    digitalWrite(SR_SRCLK, LOW);
-
-    digitalWrite(SR_SRCLK, HIGH);
-
-    value = value >> 1;
-  }
-  digitalWrite(SR_RCLK, HIGH);
-  delay(1);
-  digitalWrite(SR_RCLK, LOW);
-  delay(1);
-
-  digitalWrite(SR_nOE, LOW);  //3 state out off
-}
 
 void setup() {
-  pinMode(0, INPUT_PULLUP);
-  pinMode(1, INPUT_PULLUP);
-  pinMode(2, INPUT_PULLUP);
-  pinMode(3, INPUT_PULLUP);
-  pinMode(4, INPUT_PULLUP);
-  pinMode(5, INPUT_PULLUP);
-  pinMode(6, INPUT_PULLUP);
-  pinMode(7, INPUT_PULLUP);
-  pinMode(8, INPUT_PULLUP);
-  pinMode(SR_SERIAL, OUTPUT);
-  pinMode(SR_nOE, OUTPUT);
-  pinMode(SR_RCLK, OUTPUT);
-  pinMode(SR_SRCLK, OUTPUT);
-  pinMode(SR_nSRCLR, OUTPUT);
-
+  Serial1.begin(115200);
   Keyboard.begin();
 }
 
-void writeKeyMatrix(uint16_t *value)
-{
-  digitalWrite(SR_SERIAL, (*value & 1));
-  digitalWrite(SR_SRCLK, LOW);
-  digitalWrite(SR_SRCLK, HIGH);
-  delay(1);
-  digitalWrite(SR_RCLK, HIGH);
-  digitalWrite(SR_RCLK, LOW);
-  *value = *value >> 1;
-}
 
-uint8_t getKey(const bool enableAltKeyMap, const uint8_t x, const uint8_t y)
-{
-  uint8_t key=0;
-  if (false == enableAltKeyMap) {
-    key = keyMap[x][y];
-  } else {
-    key = altKeyMap[x][y];
-  }
-  return key;
-}
-
-bool isSpecialKey(const uint8_t key){
-  bool ret=false;
-  for (int keySpecial = 0; keySpecial < 5; keySpecial++){
-    if (specialKeys[keySpecial].id == key) {
-      ret=true;
-      break;
-    }
-  }
-  return ret;
-}
   
 
 void loop() {
-  uint16_t srValue = 0xFFFF;
-  bool counterStarted = false;
-  bool specialKey = false;
-  bool caps = false;
-  uint8_t lastKey = 0;
-  uint8_t key = 0;
-  unsigned long time;
-  unsigned long timeLastKeyPress;
-  bool macroMode = false;
-  bool keyContinuePressed=false;
-  while (1) {
-    writeRegister(0xFFFF);
-    srValue = 0xFFFE;
-    if (millis() - timeLastKeyPress > 100) {
-      timeLastKeyPress = 0;
-      lastKey = 0;
-    }  
-    for (int x = 0; x < 12; x++) {
-      writeKeyMatrix(&srValue);
-      for (int y = 0; y < 9; y++) {
-	if (digitalRead(y) == LOW) {
-	  timeLastKeyPress = millis();
-	  key = getKey(false, x, y);
-	  specialKey = isSpecialKey(key);
-	  
-	  if (lastKey == key) {
-	    if (counterStarted == false) {
-	      time = millis();
-	      counterStarted = true;
-	      continue;
-	    } else if ((millis() - time) > 500) {
-	      counterStarted = false;
-	    } else {
-	      continue;
-	    }
-	  }
-	    counterStarted = false;
-	  lastKey = key;
-	  if(specialKey){
-	      Keyboard.press(key);
-	      while((digitalRead(y) == LOW));
-	      delay(10);
-	      break;
-	  }
-	    
-	  if (!specialKey) {
-	    Keyboard.write(key);
-	    Keyboard.releaseAll();
-	    while((digitalRead(y) == LOW)){
-	      if((millis() - timeLastKeyPress) < 500){
-		continue;
-	      }
-	      else{
-		Keyboard.write(key);
-		delay(50);
-	      }
-	    }	
-	  specialKey = false;
-#ifdef DEBUG
-	  sprintf(buffer, "Key=%x x=%d y=%d", key, x, y);
-	  Keyboard.println(buffer);
-#endif
-	  }
-	}
-      }
+  String key;
+  String xStr;
+  String yStr;
+  String debug;
+  uint8_t x;
+  uint8_t y;
+  if (Serial1.available() > 0) {
+    // read incoming serial data:
+    key = Serial1.readStringUntil(';');
+    if(key){
+      xStr.concat(key.charAt(0));
+      xStr.concat(key.charAt(1));
+      yStr.concat(key.charAt(2));
+      yStr.concat(key.charAt(3));
+      x = xStr.toInt();
+      y = yStr.toInt();
+      Keyboard.write(keyMap[x][y+1]);
     }
   }
 }
