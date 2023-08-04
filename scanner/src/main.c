@@ -51,7 +51,7 @@ void putch(char data)
 
 void initPic(){
   ADCON1=0x06;
-  TRISA=0xCF;
+  TRISA=0xFF;
   TRISB=0xFF;
   nRBPU=0;
   TRISC=0xFF;
@@ -78,9 +78,9 @@ void setXpos(uint8_t x){
   TRISC=0xFF;
   PORTC=0xFF;
   TRISD=0xFF;
-  PORTC=0xFF;
-  uint8_t tris = ~((uint8_t) 1 << x);
-  uint8_t port = ~((uint8_t) 1 << x);
+  PORTD=0xFF;
+  uint8_t tris = (uint8_t)~(1U << x);
+  uint8_t port = (uint8_t)~(1U << x);
   if(x < 8){
     TRISD = tris;
     PORTD = port;
@@ -91,8 +91,8 @@ void setXpos(uint8_t x){
   }
   else{
     x = x-8;
-    tris = ~((uint8_t) 1 << x);
-    port = ~((uint8_t) 1 << x);
+    tris = (uint8_t)~(1U << x);
+    port = (uint8_t)~(1U << x);
     TRISC = tris;
     PORTC = port;
 #ifdef DEBUG_ON
@@ -102,7 +102,7 @@ void setXpos(uint8_t x){
 #endif
   }
 }
-
+/*
 uint16_t readAllYpos(){
   uint16_t ret=0;
   uint16_t row=0;
@@ -117,16 +117,16 @@ uint16_t readAllYpos(){
     printf("Y=%x, row=%x \r\n", ret, row);
   }
   return ret;
-}
+}*/
 
 uint8_t readYpos(uint8_t y){
   uint8_t ret = 0;
-  if(y <8){
-    ret = (~(PORTB) >> y) & 1;
+  if(y < 8){
+    ret = (~(PORTB) >> (7-y)) & 1; 
   }
   else{
-    y = y-8;
     ret = (~RA0) & 1;
+    
   }
   return ret;
 }
@@ -144,8 +144,9 @@ void scanKeyboard(){
       if(ret != 0){
 	key.x = x;
 	key.y = y;
-	__delay_ms(10);
-	printf("%02d%02d;", key.x, key.y);
+	__delay_ms(100);
+	printf("x=%02d y=%02d\r\n", key.x+1, key.y+1);
+	//printf("%02d%02d;", key.x, key.y);
       }
     }
   }    
