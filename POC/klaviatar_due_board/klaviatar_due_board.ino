@@ -4,73 +4,73 @@
 #define KEY_FUNC 0x01
 
 #define MACRO_MODE
-#define LAYOUT_MODE COMPAT
+#define LAYOUT_MODE_COMPAT
 
-char buffer[20];
-
-#ifndef LAYOUT_MODE == REAL
+#ifdef LAYOUT_MODE_REAL
 const uint8_t keyMap[12][9] = {
-  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_SHIFT, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
-  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'z', 'a', 'q', '1' },                                       //2
-  { '6', 0, '5', KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                                   //3
-  { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                         //4
-  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'v', 'f', 'r', '4', KEY_F3 },                                        //5
-  { 0xFF, 0, KEY_RETURN, KEY_RIGHT_ARROW, ' ', 'b', 'g', 't', '5' },                                       //6
-  { '\\', 0, KEY_UP_ARROW, KEY_DOWN_ARROW, 'n', 'h', 'y', '6', KEY_F4 },                                   //7
-  { '=', 0, ']', '`', 'm', 'j', 'u', '7', KEY_F5 },                                                        //8
-  { '-', 0, '[', '\'', KEY_LEFT_ARROW, ',', 'k', 'i', '8' },                                               //9
-  { '0', 0, 'p', ';', '/', '.', 'l', 'o', '9' },                                                           //10
-  { 0, KEY_F10, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
+  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_SHIFT, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                              //0
+  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_ALT, KEY_LEFT_CTRL, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
+  { '1', 'q', 'a', 'z', KEY_FUNC, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                       //2
+  { KEY_F1, '2', 'w', 's', 'x', KEY_KP_4, '5', 0, '6' },                                                   //3
+  { KEY_F2, '3', 'e', 'd', 'c', KEY_NUM_LOCK, KEY_F8, 0, KEY_F9 },                                         //4
+  { KEY_F3, '4', 'r', 'f', 'v', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                        //5
+  { '5', 't', 'g', 'b', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                       //6
+  { KEY_F4, '6', 'y', 'h', 'n', KEY_DOWN_ARROW, KEY_UP_ARROW, '\\', 0 },                                   //7
+  { KEY_F5, '7', 'u', 'j', 'm', '`', ']', 0, '=' },                                                        //8
+  { '8', 'i', 'k', ',', KEY_LEFT_ARROW, '[', 0, '-', 0 },                                                  //9
+  { '9', 'o', 'l', '.', '/', ';', 'p', '0', 0 },                                                           //10
+  { KEY_F10, 0, 0, 0, 0, 0, 0, 0, 0 },                                                                     //11
 };
 
 const uint8_t altKeyMap[12][9] = {
-  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_SHIFT, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_CTRL, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
-  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'Z', 'A', 'Q', '!' },                                       //2
-  { KEY_KP_6, 0, KEY_KP_5, KEY_KP_4, 'X', 'S', 'W', '@', KEY_F1 },                                         //3
-  { KEY_F11, 0, KEY_F8, KEY_NUM_LOCK, 'C', 'D', 'E', '#', KEY_F2 },                                        //4
-  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'V', 'F', 'R', '$', KEY_F3 },                                        //5
-  { 0xFF, 0, KEY_RETURN, 0, ' ', 'B', 'G', 'T', '%' },                                                     //6
-  { '|', 0, KEY_UP_ARROW, 0, 'N', 'H', 'Y', '^', KEY_F4 },                                                 //7
-  { '+', 0, ']', '~', 'M', 'J', 'U', '&', KEY_F5 },                                                        //8
-  { '_', 0, '{', '¨', KEY_LEFT_ARROW, '<', 'K', 'I', '*' },                                                //9
-  { ')', 0, 'P', ':', '?', '>', 'L', 'O', '(' },                                                           //10
-  { 0, KEY_F12, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
-};
+  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_SHIFT, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                              //0
+  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_ALT, KEY_LEFT_CTRL, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
+  { '!', 'Q', 'A', 'Z', KEY_FUNC, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                       //2
+  { KEY_F1, '@', 'W', 'S', 'X', KEY_KP_4, KEY_KP_5, 0, KEY_KP_6 },                                         //3
+  { KEY_F2, '#', 'E', 'D', 'C', KEY_NUM_LOCK, KEY_F8, 0, KEY_F11 },                                        //4
+  { KEY_F3, '$', 'R', 'F', 'V', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                        //5
+  { '%', 'T', 'G', 'B', ' ', 0, KEY_RETURN, 0xFF, 0 },                                                     //6
+  { KEY_F4, '^', 'Y', 'H', 'N', 0, KEY_UP_ARROW, 0, '|' },                                                 //7
+  { KEY_F5, '&', 'U', 'J', 'M', '~', ']', 0, '+' },                                                        //8
+  { '*', 'I', 'K', '<', KEY_LEFT_ARROW, '¨','{', 0, '_'},                                                  //9
+  { '(', 'O', 'L', '>', '?', ':', 'P', 0, ')' },                                                           //10
+  { 0, 0, 0, 0, 0, 0, 0, KEY_F12, 0 }                                                                      //11
 
-#elif LAYOUT_MODE == COMPAT
+};
+#endif
+
+#ifdef LAYOUT_MODE_COMPAT
 
 const uint8_t keyMap[12][9] = {
-  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_FUNC, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
-  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_LEFT_ALT, 'z', 'a', 'q', '1' },                                       //2
-  { '6', 0, '5', KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                                   //3
-  { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                         //4
-  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'v', 'f', 'r', '4', KEY_F3 },                                        //5
-  { 0xFF, 0, KEY_RETURN, KEY_RIGHT_ARROW, ' ', 'b', 'g', 't', '5' },                                       //6
-  { '\\', 0, KEY_UP_ARROW, KEY_DOWN_ARROW, 'n', 'h', 'y', '6', KEY_F4 },                                   //7
-  { '=', 0, ']', '`', 'm', 'j', 'u', '7', KEY_F5 },                                                        //8
-  { '-', 0, '[', '\'', KEY_LEFT_ARROW, ',', 'k', 'i', '8' },                                               //9
-  { '0', 0, 'p', ';', '/', '.', 'l', 'o', '9' },                                                           //10
-  { 0, KEY_F10, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
+  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_CTRL, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                            //0
+  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_FUNC, KEY_LEFT_SHIFT, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
+  { '1', 'q', 'a', 'z', KEY_LEFT_ALT, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                //2
+  { KEY_F1, '2', 'w', 's', 'x', KEY_KP_4, '5', 0, '6' },                                                //3
+  { KEY_F2, '3', 'e', 'd', 'c', KEY_NUM_LOCK, KEY_F8, 0, KEY_F9 },                                      //4
+  { KEY_F3, '4', 'r', 'f', 'v', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                     //5
+  { '5', 't', 'g', 'b', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                    //6
+  { KEY_F4, '6', 'y', 'h', 'n', KEY_DOWN_ARROW, KEY_UP_ARROW, '\\', 0 },                                //7
+  { KEY_F5, '7', 'u', 'j', 'm', '`', ']', 0, '=' },                                                     //8
+  { '8', 'i', 'k', ',', KEY_LEFT_ARROW, '\'', '[', 0, '-' },                                                  //9
+  { '9', 'o', 'l', '.', '/', ';', 'p', '0', 0 },                                                        //10
+  { 0, 0, 0, 0, 0, 0, 0, KEY_F10, 0 }                                                                   //11
+
 };
 
 const uint8_t altKeyMap[12][9] = {
-  { KEY_KP_9, 0, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },                              //0
-  { KEY_KP_PLUS, 0, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_FUNC, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },  //1
-  { KEY_KP_3, 0, KEY_KP_2, KEY_KP_1, KEY_LEFT_ALT, 'Z', 'A', 'Q', '!' },                                       //2
-  { KEY_KP_6, 0, KEY_KP_5, KEY_KP_4, 'X', 'S', 'W', '@', KEY_F1 },                                         //3
-  { KEY_F11, 0, KEY_F8, KEY_NUM_LOCK, 'C', 'D', 'E', '#', KEY_F2 },                                        //4
-  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'V', 'F', 'R', '$', KEY_F3 },                                        //5
-  { 0xFF, 0, KEY_RETURN, 0, ' ', 'B', 'G', 'T', '%' },                                                     //6
-  { '|', 0, KEY_UP_ARROW, 0, 'N', 'H', 'Y', '^', KEY_F4 },                                                 //7
-  { '+', 0, ']', '~', 'M', 'J', 'U', '&', KEY_F5 },                                                        //8
-  { '_', 0, '{', '¨', KEY_LEFT_ARROW, '<', 'K', 'I', '*' },                                                //9
-  { ')', 0, 'P', ':', '?', '>', 'L', 'O', '(' },                                                           //10
-  { 0, KEY_F12, 0, 0, 0, 0, 0, 0, 0 }                                                                      //11
+  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_CTRL, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                            //0
+  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_SHIFT, KEY_FUNC, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
+  { '!', 'Q', 'A', 'Z', KEY_LEFT_ALT, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                //2
+  { KEY_F1, '@', 'W', 'S', 'X', KEY_KP_4, KEY_KP_5, 0, KEY_KP_6 },                                      //3
+  { KEY_F2, '#', 'E', 'D', 'C', KEY_NUM_LOCK, KEY_F8, 0, KEY_F11 },                                     //4
+  { KEY_F3, '$', 'R', 'F', 'V', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                     //5
+  { '%', 'T', 'G', 'B', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                    //6
+  { KEY_F4, '^', 'Y', 'H', 'N', 0, KEY_UP_ARROW, 0, '|' },                                              //7
+  { KEY_F5, '&', 'U', 'J', 'M', '~', ']', 0, '+' },                                                     //8
+  { '*', 'I', 'K', '<', KEY_LEFT_ARROW, '{', 0, '_' },                                                  //9
+  { '(', 'O', 'L', '>', '?', ':', 'P', 0, ')' },                                                        //10
+  { 0, 0, 0, 0, 0, 0, 0, KEY_F12, 0 }                                                                   //11
 };
-
 #endif
 
 
@@ -96,27 +96,55 @@ void setup() {
 }
 
 
-  
+
 
 void loop() {
   String key;
   String xStr;
   String yStr;
-  String debug;
+  char mode;
   uint8_t x;
   uint8_t y;
-  if (Serial1.available() > 0) {
-    // read incoming serial data:
-    key = Serial1.readStringUntil(';');
-    if(key){
-      xStr.concat(key.charAt(0));
-      xStr.concat(key.charAt(1));
-      yStr.concat(key.charAt(2));
-      yStr.concat(key.charAt(3));
-      x = xStr.toInt();
-      y = yStr.toInt();
-      Keyboard.write(keyMap[x][y+1]);
+  uint8_t pressedKey;
+  bool specialKey;
+  unsigned long timeLastKey;
+  specialKey_t pressedSpecialKeys[5] = { 0 };
+  delay(500);
+  while (1) {
+    if (Serial1.available() > 0) {
+      // read incoming serial data:
+      key = Serial1.readStringUntil(';');
+      if (key) {
+        xStr = "";
+        yStr = "";
+        timeLastKey = millis();
+        mode = key[0];
+        xStr.concat(key.charAt(1));
+        xStr.concat(key.charAt(2));
+        yStr.concat(key.charAt(3));
+        yStr.concat(key.charAt(4));
+        x = xStr.toInt();
+        y = yStr.toInt();
+        pressedKey = keyMap[x][y];
+        //specialKey = false;
+        /*for (uint8_t i = 0; i < 5; i++) {
+          if (specialKeys[i].id == pressedKey) {
+            specialKey = true;
+          }
+        }*/
+        if (mode == 'P') {
+          Keyboard.press(pressedKey);
+        } else if (mode == 'R') {
+          //if (!specialKey) {
+            //Keyboard.releaseAll();
+            Keyboard.release(pressedKey);
+          //}
+        }
+      
+    }
+      if (millis() - timeLastKey > 10000) {
+        Keyboard.releaseAll();
+      }
     }
   }
 }
-  

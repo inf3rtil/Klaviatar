@@ -14,33 +14,60 @@
 
 #define DEBUG_OFF
 
-#define Y_0 RB0
-#define Y_1 RB1
-#define Y_2 RB2
-#define Y_3 RB3
-#define Y_4 RB4
-#define Y_5 RB5
-#define Y_6 RB6
-#define Y_7 RB7
-#define Y_8 RA0
 
-#define X_0 RD0
-#define X_1 RD1
-#define X_2 RD2
-#define X_3 RD3
-#define X_4 RD4
-#define X_5 RD5
-#define X_6 RD6
-#define X_7 RD7
-#define X_8 RC0
-#define X_9 RC1
-#define X_10 RC2
-#define X_11 RC3
 
-struct Key_t{
+typedef struct{
+  uint8_t pressed;
   uint8_t x;
   uint16_t y;
-};
+}Key_t;
+
+Key_t pressedKeys[5] = {0};
+uint8_t pressedKeyIndex = 0;
+
+
+void addPressedKey(Key_t key){
+  if(pressedKeyIndex == 4){
+    pressedKeyIndex = 0;
+  }
+  key.pressed = 1;
+  pressedKeys[pressedKeyIndex] = key;
+  pressedKeyIndex++;
+}
+
+void removePressedKey(int8_t pos){
+  Key_t key={0};
+  pressedKeys[pos] = key;
+}
+
+int8_t keyIsPressed(Key_t key){
+  for(int8_t i=0; i < 5; i++){
+    if(pressedKeys[i].x == key.x && pressedKeys[i].y == key.y && pressedKeys[i].pressed == 1){
+      return i;
+    }
+  }
+  return -1;
+}
+
+
+void pressKey(Key_t key){
+  if(keyIsPressed(key) == -1){
+    addPressedKey(key);
+    //printf("PRESS: x=%02d y=%02d\r\n", key.x+1, key.y+1);
+    printf("P%02d%02d;", key.x, key.y);
+  }
+}
+
+void releaseKey(Key_t key){
+  int8_t pressedPos=keyIsPressed(key);
+  if(pressedPos >= 0){
+    removePressedKey(pressedPos);
+    //printf("RELEASE: x=%02d y=%02d\r\n", key.x+1, key.y+1);
+    printf("R%02d%02d;", key.x, key.y);
+  }
+}
+
+
 
 void putch(char data)
 {
@@ -84,10 +111,6 @@ void setXpos(uint8_t x){
   if(x < 8){
     TRISD = tris;
     PORTD = port;
-#ifdef DEBUG_ON
-    __delay_ms(1000);
-    printf("x=%d, TRISD=%x, PORTD=%x \r\n", x, tris, port);
-#endif
   }
   else{
     x = x-8;
@@ -95,11 +118,6 @@ void setXpos(uint8_t x){
     port = (uint8_t)~(1U << x);
     TRISC = tris;
     PORTC = port;
-#ifdef DEBUG_ON
-    __delay_ms(1000);
-    x= x+8;
-    printf("x=%d, TRISC=%x, PORTC=%x \r\n", x, tris, port);
-#endif
   }
 }
 /*
@@ -122,31 +140,37 @@ uint16_t readAllYpos(){
 uint8_t readYpos(uint8_t y){
   uint8_t ret = 0;
   if(y < 8){
-    ret = (~(PORTB) >> (7-y)) & 1; 
+      ret = (~(PORTB) >> (7-y)) & 1;
+      __delay_us(500);
   }
   else{
-    ret = (~RA0) & 1;
-    
+      ret = (~RA0) & 1;
+      __delay_us(500);
   }
   return ret;
 }
 
+
+
+
+
 void scanKeyboard(){
   const uint8_t xMax=12;
   const uint8_t yMax=9;
-  struct Key_t key;
+  Key_t key;
   uint8_t ret;
 
   for(uint8_t x=0; x < xMax; x++){
     setXpos(x);
+    key.x = x;
     for(uint8_t y=0; y < yMax; y++){
+      key.y = y;
       ret = readYpos(y);
       if(ret != 0){
-	key.x = x;
-	key.y = y;
-	__delay_ms(100);
-	printf("x=%02d y=%02d\r\n", key.x+1, key.y+1);
-	//printf("%02d%02d;", key.x, key.y);
+	pressKey(key);
+      }
+      else{
+	releaseKey(key);
       }
     }
   }    
