@@ -6,6 +6,8 @@
 #define MACRO_MODE
 #define LAYOUT_MODE_COMPAT
 
+#define PIC_nMCLR 9
+
 #ifdef LAYOUT_MODE_REAL
 const uint8_t keyMap[12][9] = {
   { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_SHIFT, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                              //0
@@ -91,7 +93,8 @@ const specialKey_t specialKeys[5] = {
 
 
 void setup() {
-  Serial1.begin(115200);
+  pinMode(PIC_nMCLR, OUTPUT);
+  Serial1.begin(9600);
   Keyboard.begin();
 }
 
@@ -99,6 +102,8 @@ void setup() {
 
 
 void loop() {
+  delay(1000);
+  digitalWrite(PIC_nMCLR, HIGH);
   String key;
   String xStr;
   String yStr;
@@ -109,12 +114,17 @@ void loop() {
   bool specialKey;
   unsigned long timeLastKey;
   specialKey_t pressedSpecialKeys[5] = { 0 };
+  uint32_t lastKeepAlive = 0;
   delay(500);
   while (1) {
     if (Serial1.available() > 0) {
       // read incoming serial data:
       key = Serial1.readStringUntil(';');
       if (key) {
+        if(key[0] == 'L'){
+          lastKeepAlive = millis();
+          continue;
+        }
         xStr = "";
         yStr = "";
         timeLastKey = millis();
