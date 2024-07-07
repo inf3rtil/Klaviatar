@@ -317,9 +317,6 @@
   (junction (at 41.91 90.17) (diameter 0) (color 0 0 0 0)
     (uuid 7c9248bb-ad5d-48d3-b4ef-95824e7a59c5)
   )
-  (junction (at 49.53 73.66) (diameter 0) (color 0 0 0 0)
-    (uuid 7e0447b2-6224-4847-bbd9-a6971b74a737)
-  )
   (junction (at 67.31 39.37) (diameter 0) (color 0 0 0 0)
     (uuid 7ee855a9-a3c9-4dc6-a7d4-7f58c9c3f1dc)
   )
@@ -536,6 +533,9 @@
   (junction (at 74.93 86.36) (diameter 0) (color 0 0 0 0)
     (uuid f2b7f238-963f-4317-9127-9fd6488f7489)
   )
+  (junction (at 43.18 86.36) (diameter 0) (color 0 0 0 0)
+    (uuid f4dfbfaf-6c36-441b-a504-fa1e444268ab)
+  )
   (junction (at 100.33 99.06) (diameter 0) (color 0 0 0 0)
     (uuid f6ad2bb3-f7b5-4365-badb-9458e1e8842c)
   )
@@ -549,10 +549,6 @@
   (wire (pts (xy 118.11 26.67) (xy 118.11 39.37))
     (stroke (width 0) (type default))
     (uuid 01423df8-1bed-4ca0-a9af-26774f34fe62)
-  )
-  (wire (pts (xy 36.83 73.66) (xy 49.53 73.66))
-    (stroke (width 0) (type default))
-    (uuid 044af82f-db1d-403c-92c2-aa195707f1f6)
   )
   (wire (pts (xy 151.13 82.55) (xy 151.13 86.36))
     (stroke (width 0) (type default))
@@ -594,7 +590,7 @@
     (stroke (width 0) (type default))
     (uuid 103d5910-66be-40fc-ab1f-667edab3b51b)
   )
-  (wire (pts (xy 36.83 86.36) (xy 49.53 86.36))
+  (wire (pts (xy 36.83 86.36) (xy 43.18 86.36))
     (stroke (width 0) (type default))
     (uuid 11333d2b-ec24-4db9-adf4-daf3d14039b9)
   )
@@ -677,6 +673,10 @@
   (wire (pts (xy 49.53 86.36) (xy 62.23 86.36))
     (stroke (width 0) (type default))
     (uuid 1fe8737e-ff6d-4f18-ac03-68ad7d203a38)
+  )
+  (wire (pts (xy 43.18 73.66) (xy 43.18 86.36))
+    (stroke (width 0) (type default))
+    (uuid 200280c4-d73e-414e-823f-e5159e2ad6a5)
   )
   (wire (pts (xy 74.93 82.55) (xy 74.93 86.36))
     (stroke (width 0) (type default))
@@ -1406,6 +1406,10 @@
     (stroke (width 0) (type default))
     (uuid d20fb6a1-1a02-4f42-8436-ae898a48aec5)
   )
+  (wire (pts (xy 43.18 86.36) (xy 49.53 86.36))
+    (stroke (width 0) (type default))
+    (uuid d2ae542e-84a0-4ebe-8060-edfc7dde6fe0)
+  )
   (wire (pts (xy 100.33 111.76) (xy 113.03 111.76))
     (stroke (width 0) (type default))
     (uuid d3ceec6a-bdb5-40be-8622-491db4bd3f78)
@@ -1558,6 +1562,10 @@
     (stroke (width 0) (type default))
     (uuid f71bd7ed-97f5-413d-a05c-0d7affac1c23)
   )
+  (wire (pts (xy 36.83 73.66) (xy 43.18 73.66))
+    (stroke (width 0) (type default))
+    (uuid f7b5e94b-e545-45bf-a398-18eeef808f04)
+  )
   (wire (pts (xy 125.73 86.36) (xy 138.43 86.36))
     (stroke (width 0) (type default))
     (uuid f7ed992c-1fbe-4beb-a1ba-a5b72b9da481)
@@ -1702,7 +1710,7 @@
     (property "Value" "SA1" (at 57.15 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 92.71 0)
@@ -1712,7 +1720,7 @@
     (pin "2" (uuid 81e1be32-99eb-4780-9e84-aebf6898605e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW54") (unit 1)
         )
       )
@@ -1725,10 +1733,10 @@
     (property "Reference" "SW45" (at 31.75 78.74 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SA1" (at 31.75 81.28 90)
+    (property "Value" "rshift" (at 31.75 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 80.01 0)
@@ -1738,7 +1746,7 @@
     (pin "2" (uuid e3c96e14-5327-4b37-8e41-de783e5a9e48))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW45") (unit 1)
         )
       )
@@ -1754,7 +1762,7 @@
     (property "Value" "SA1" (at 120.65 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 80.01 0)
@@ -1764,7 +1772,7 @@
     (pin "2" (uuid f10158e9-73dd-4912-af18-f3ef1a8b07e9))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW73") (unit 1)
         )
       )
@@ -1780,7 +1788,7 @@
     (property "Value" "\"-\"" (at 31.75 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 29.21 0)
@@ -1790,7 +1798,7 @@
     (pin "2" (uuid 21811162-51f9-4dee-b580-17586abff4c5))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW1") (unit 1)
         )
       )
@@ -1806,7 +1814,7 @@
     (property "Value" "SA1" (at 120.65 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 118.11 0)
@@ -1816,7 +1824,7 @@
     (pin "2" (uuid 7123ecec-41e7-4ee0-90a3-f84bba39c00f))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW76") (unit 1)
         )
       )
@@ -1832,7 +1840,7 @@
     (property "Value" "SA1" (at 82.55 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 118.11 0)
@@ -1842,7 +1850,7 @@
     (pin "2" (uuid 67929307-2644-4e1c-9d72-0800c292e936))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW64") (unit 1)
         )
       )
@@ -1858,7 +1866,7 @@
     (property "Value" "SA1" (at 157.48 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 41.91 0)
@@ -1868,7 +1876,7 @@
     (pin "2" (uuid 4ecb77e8-fece-425b-bb9b-f86652beae21))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW22") (unit 1)
         )
       )
@@ -1884,7 +1892,7 @@
     (property "Value" "SA1" (at 120.65 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 92.71 0)
@@ -1894,7 +1902,7 @@
     (pin "2" (uuid 696118bc-242d-45f8-a455-d350f1cb6ad7))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW74") (unit 1)
         )
       )
@@ -1910,7 +1918,7 @@
     (property "Value" "SA1" (at 157.48 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 118.11 0)
@@ -1920,7 +1928,7 @@
     (pin "2" (uuid 9bdc7578-c5db-4a73-89d5-7bddb9b017b4))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW88") (unit 1)
         )
       )
@@ -1936,7 +1944,7 @@
     (property "Value" "SA1" (at 95.25 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 41.91 0)
@@ -1946,7 +1954,7 @@
     (pin "2" (uuid e5be1e19-5ff6-4e87-bf16-fbb269db21d4))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW17") (unit 1)
         )
       )
@@ -1962,7 +1970,7 @@
     (property "Value" "SA1" (at 144.78 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 41.91 0)
@@ -1972,7 +1980,7 @@
     (pin "2" (uuid b97937bc-1249-4eca-802c-e596b7e0b33b))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW21") (unit 1)
         )
       )
@@ -1988,7 +1996,7 @@
     (property "Value" "SA1" (at 95.25 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 80.01 0)
@@ -1998,7 +2006,7 @@
     (pin "2" (uuid 5a58f55f-643a-4d71-bc0d-e9466f3950fd))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW65") (unit 1)
         )
       )
@@ -2014,7 +2022,7 @@
     (property "Value" "SA1" (at 82.55 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 41.91 0)
@@ -2024,7 +2032,7 @@
     (pin "2" (uuid ca4f2c8b-f13a-4d39-a2ee-9bb80a19931b))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW16") (unit 1)
         )
       )
@@ -2037,10 +2045,10 @@
     (property "Reference" "SW13" (at 44.45 40.64 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SA1" (at 44.45 43.18 90)
+    (property "Value" "Tab" (at 44.45 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 41.91 0)
@@ -2050,7 +2058,7 @@
     (pin "2" (uuid 0d9e0610-397b-4de3-bdc9-19ea17a83e2e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW13") (unit 1)
         )
       )
@@ -2066,7 +2074,7 @@
     (property "Value" "SA1" (at 107.95 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 29.21 0)
@@ -2076,7 +2084,7 @@
     (pin "2" (uuid aec0dc5f-8b39-4a1a-be1c-859e33fd8a43))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW7") (unit 1)
         )
       )
@@ -2092,7 +2100,7 @@
     (property "Value" "SA1" (at 120.65 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 105.41 0)
@@ -2102,7 +2110,7 @@
     (pin "2" (uuid c1763f65-2d8f-4322-a070-6bcfe3d9bef8))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW75") (unit 1)
         )
       )
@@ -2118,7 +2126,7 @@
     (property "Value" "SA1" (at 69.85 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 118.11 0)
@@ -2128,7 +2136,7 @@
     (pin "2" (uuid 921a72ac-6ee6-44f4-b818-e2ce09e21faf))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW60") (unit 1)
         )
       )
@@ -2144,7 +2152,7 @@
     (property "Value" "SA1" (at 31.75 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 118.11 0)
@@ -2154,7 +2162,7 @@
     (pin "2" (uuid 0bd22236-f9e3-4f0d-8e03-c91eeb770527))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW48") (unit 1)
         )
       )
@@ -2170,7 +2178,7 @@
     (property "Value" "SA1" (at 57.15 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 118.11 0)
@@ -2180,7 +2188,7 @@
     (pin "2" (uuid 0576f4a5-02a9-4ac8-9e75-45b05bc20996))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW56") (unit 1)
         )
       )
@@ -2196,7 +2204,7 @@
     (property "Value" "SA1" (at 69.85 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 41.91 0)
@@ -2206,7 +2214,7 @@
     (pin "2" (uuid 5334d867-3bd3-48ce-88dd-0837c39b746d))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW15") (unit 1)
         )
       )
@@ -2222,7 +2230,7 @@
     (property "Value" "SA1" (at 95.25 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 118.11 0)
@@ -2232,7 +2240,7 @@
     (pin "2" (uuid 6504e77a-6fca-420f-afec-b11be63838b1))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW68") (unit 1)
         )
       )
@@ -2248,7 +2256,7 @@
     (property "Value" "SA1" (at 44.45 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 118.11 0)
@@ -2258,7 +2266,7 @@
     (pin "2" (uuid 41fe1cac-a688-4cab-a2a8-0ccc8f619a33))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW52") (unit 1)
         )
       )
@@ -2274,7 +2282,7 @@
     (property "Value" "SA1" (at 107.95 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 67.31 0)
@@ -2284,7 +2292,7 @@
     (pin "2" (uuid aacc65d3-b6b8-4e44-8d83-18028ad18ebe))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW36") (unit 1)
         )
       )
@@ -2300,7 +2308,7 @@
     (property "Value" "SA1" (at 95.25 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 29.21 0)
@@ -2310,7 +2318,7 @@
     (pin "2" (uuid 125ffead-9b7c-43b2-8546-4b4f1f4692f1))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW6") (unit 1)
         )
       )
@@ -2326,7 +2334,7 @@
     (property "Value" "SA1" (at 107.95 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 41.91 0)
@@ -2336,7 +2344,7 @@
     (pin "2" (uuid fb5d6398-5fb7-4f81-a513-0d9768c21b4d))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW18") (unit 1)
         )
       )
@@ -2352,7 +2360,7 @@
     (property "Value" "SA1" (at 82.55 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 92.71 0)
@@ -2362,7 +2370,7 @@
     (pin "2" (uuid 217dbaa5-435c-4051-b90a-876cb572ff53))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW62") (unit 1)
         )
       )
@@ -2378,7 +2386,7 @@
     (property "Value" "SA1" (at 44.45 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 80.01 0)
@@ -2388,7 +2396,7 @@
     (pin "2" (uuid 10a4aef4-a0c1-49c3-8891-f9d5bc89260d))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW49") (unit 1)
         )
       )
@@ -2404,7 +2412,7 @@
     (property "Value" "SA1" (at 95.25 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 54.61 0)
@@ -2414,7 +2422,7 @@
     (pin "2" (uuid fcdf4215-f440-4f83-bbaf-e927825f19c9))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW33") (unit 1)
         )
       )
@@ -2430,7 +2438,7 @@
     (property "Value" "SA1" (at 120.65 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 54.61 0)
@@ -2440,7 +2448,7 @@
     (pin "2" (uuid 722f339d-b879-47c6-9b30-3dc42e172f27))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW37") (unit 1)
         )
       )
@@ -2456,7 +2464,7 @@
     (property "Value" "SA1" (at 133.35 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 54.61 0)
@@ -2466,7 +2474,7 @@
     (pin "2" (uuid 06d2765e-afad-4259-a1ee-2481de93349a))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW39") (unit 1)
         )
       )
@@ -2482,7 +2490,7 @@
     (property "Value" "SA1" (at 57.15 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 80.01 0)
@@ -2492,7 +2500,7 @@
     (pin "2" (uuid ee268677-163f-41d6-926e-e3e5852e366c))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW53") (unit 1)
         )
       )
@@ -2508,7 +2516,7 @@
     (property "Value" "SA1" (at 133.35 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 29.21 0)
@@ -2518,7 +2526,7 @@
     (pin "2" (uuid 6b5e3483-9bcf-42f3-9fbd-e7b2b9cc3024))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW9") (unit 1)
         )
       )
@@ -2534,7 +2542,7 @@
     (property "Value" "SA1" (at 144.78 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 80.01 0)
@@ -2544,7 +2552,7 @@
     (pin "2" (uuid 1a94f013-2fb2-41b1-9d62-02af2ccaa875))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW81") (unit 1)
         )
       )
@@ -2560,7 +2568,7 @@
     (property "Value" "SA1" (at 133.35 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 118.11 0)
@@ -2570,7 +2578,7 @@
     (pin "2" (uuid 1738ad3c-1a20-4cbb-bb15-12ba9e31a15b))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW80") (unit 1)
         )
       )
@@ -2586,7 +2594,7 @@
     (property "Value" "SA1" (at 157.48 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 29.21 0)
@@ -2596,7 +2604,7 @@
     (pin "2" (uuid 2de5b0eb-fd83-41c9-81d9-60d983962e95))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW11") (unit 1)
         )
       )
@@ -2612,7 +2620,7 @@
     (property "Value" "SA1" (at 144.78 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 118.11 0)
@@ -2622,7 +2630,7 @@
     (pin "2" (uuid e915f3b7-ddd1-41f2-a8b1-cb9829039390))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW84") (unit 1)
         )
       )
@@ -2638,7 +2646,7 @@
     (property "Value" "SA1" (at 69.85 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 67.31 0)
@@ -2648,7 +2656,7 @@
     (pin "2" (uuid e488a110-79a6-4541-ad6c-276d9675a395))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW30") (unit 1)
         )
       )
@@ -2664,7 +2672,7 @@
     (property "Value" "SA1" (at 133.35 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 105.41 0)
@@ -2674,7 +2682,7 @@
     (pin "2" (uuid e606e77d-b540-41e7-b41d-18e1c53c8283))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW79") (unit 1)
         )
       )
@@ -2690,7 +2698,7 @@
     (property "Value" "SA1" (at 107.95 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 92.71 0)
@@ -2700,7 +2708,7 @@
     (pin "2" (uuid be51087f-7c63-427c-94ab-34eb4e3c2c56))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW70") (unit 1)
         )
       )
@@ -2716,7 +2724,7 @@
     (property "Value" "SA1" (at 144.78 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 92.71 0)
@@ -2726,7 +2734,7 @@
     (pin "2" (uuid d569c8f5-a904-4c21-a1ea-d8945e05d027))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW82") (unit 1)
         )
       )
@@ -2742,7 +2750,7 @@
     (property "Value" "SA1" (at 107.95 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 105.41 0)
@@ -2752,7 +2760,7 @@
     (pin "2" (uuid beddfbcf-6f12-4906-9db8-e394fa383dca))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW71") (unit 1)
         )
       )
@@ -2768,7 +2776,7 @@
     (property "Value" "SA1" (at 107.95 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 80.01 0)
@@ -2778,7 +2786,7 @@
     (pin "2" (uuid 59aa3bd4-e64f-4108-a067-6d202ca8669c))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW69") (unit 1)
         )
       )
@@ -2794,7 +2802,7 @@
     (property "Value" "SA1" (at 133.35 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 80.01 0)
@@ -2804,7 +2812,7 @@
     (pin "2" (uuid 85fdbdf3-914e-46b1-bea0-96b350ed0c06))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW77") (unit 1)
         )
       )
@@ -2820,7 +2828,7 @@
     (property "Value" "SA1" (at 82.55 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 105.41 0)
@@ -2830,7 +2838,7 @@
     (pin "2" (uuid b54b9dfd-9429-4b00-93b3-f9922f05c182))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW63") (unit 1)
         )
       )
@@ -2846,7 +2854,7 @@
     (property "Value" "SA1" (at 133.35 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 67.31 0)
@@ -2856,7 +2864,7 @@
     (pin "2" (uuid 05a1afd1-af4f-45bd-b11c-aca4ba2f3123))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW40") (unit 1)
         )
       )
@@ -2872,7 +2880,7 @@
     (property "Value" "F10" (at 170.18 134.62 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 179.07 133.35 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 179.07 133.35 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 179.07 133.35 0)
@@ -2882,7 +2890,7 @@
     (pin "2" (uuid 4664d7ea-4e65-4eb0-a73a-1c6f1a52d9c2))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW89") (unit 1)
         )
       )
@@ -2898,7 +2906,7 @@
     (property "Value" "SA1" (at 57.15 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 41.91 0)
@@ -2908,7 +2916,7 @@
     (pin "2" (uuid 57a00d27-74c0-4801-9511-e83d9cdaa570))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW14") (unit 1)
         )
       )
@@ -2921,10 +2929,10 @@
     (property "Reference" "SW25" (at 44.45 53.34 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SA1" (at 44.45 55.88 90)
+    (property "Value" "caps" (at 44.45 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 54.61 0)
@@ -2934,7 +2942,7 @@
     (pin "2" (uuid 186b09d9-8dd1-4a44-a013-501d2ca355d9))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW25") (unit 1)
         )
       )
@@ -2950,7 +2958,7 @@
     (property "Value" "SA1" (at 144.78 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 29.21 0)
@@ -2960,7 +2968,7 @@
     (pin "2" (uuid 6ef7d18c-1232-4b80-a997-95f61dbfb5e7))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW10") (unit 1)
         )
       )
@@ -2976,7 +2984,7 @@
     (property "Value" "SA1" (at 57.15 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 54.61 0)
@@ -2986,7 +2994,7 @@
     (pin "2" (uuid 41a27a12-119a-4d99-9f16-8212ac1b727a))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW27") (unit 1)
         )
       )
@@ -2999,10 +3007,10 @@
     (property "Reference" "SW12" (at 31.75 40.64 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SA1" (at 31.75 43.18 90)
+    (property "Value" "stop" (at 31.75 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 41.91 0)
@@ -3012,7 +3020,7 @@
     (pin "2" (uuid 30473f2f-f34c-469e-a007-0b3091c8989f))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW12") (unit 1)
         )
       )
@@ -3028,7 +3036,7 @@
     (property "Value" "SA1" (at 157.48 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 67.31 0)
@@ -3038,7 +3046,7 @@
     (pin "2" (uuid 137d22a8-b230-4583-94b1-c611d0931741))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW44") (unit 1)
         )
       )
@@ -3054,7 +3062,7 @@
     (property "Value" "SA1" (at 120.65 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 41.91 0)
@@ -3064,7 +3072,7 @@
     (pin "2" (uuid bd15e46a-981c-43a2-b58a-9fff16d46f0e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW19") (unit 1)
         )
       )
@@ -3080,7 +3088,7 @@
     (property "Value" "SA1" (at 157.48 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 105.41 0)
@@ -3090,7 +3098,7 @@
     (pin "2" (uuid 4d99afef-ae34-43de-8743-7d0a8c8adf75))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW87") (unit 1)
         )
       )
@@ -3106,7 +3114,7 @@
     (property "Value" "SA1" (at 69.85 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 29.21 0)
@@ -3116,7 +3124,7 @@
     (pin "2" (uuid c20d6509-6c72-4aec-bd24-70657b84cb42))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW4") (unit 1)
         )
       )
@@ -3132,7 +3140,7 @@
     (property "Value" "SA1" (at 144.78 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 54.61 0)
@@ -3142,7 +3150,7 @@
     (pin "2" (uuid 3856fd86-ece4-4537-948e-f2c456229f73))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW41") (unit 1)
         )
       )
@@ -3158,7 +3166,7 @@
     (property "Value" "SA1" (at 95.25 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 105.41 0)
@@ -3168,7 +3176,7 @@
     (pin "2" (uuid edc2e858-bbc8-4a60-b38d-c0704eedfd1a))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW67") (unit 1)
         )
       )
@@ -3184,7 +3192,7 @@
     (property "Value" "SA1" (at 44.45 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 105.41 0)
@@ -3194,7 +3202,7 @@
     (pin "2" (uuid 525acd81-a7eb-49df-9a1e-ea328e0af14c))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW51") (unit 1)
         )
       )
@@ -3210,7 +3218,7 @@
     (property "Value" "SA1" (at 144.78 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 105.41 0)
@@ -3220,7 +3228,7 @@
     (pin "2" (uuid 2a362829-ea9e-46f5-8ca1-543cf1beff00))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW83") (unit 1)
         )
       )
@@ -3236,7 +3244,7 @@
     (property "Value" "SA1" (at 82.55 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 29.21 0)
@@ -3246,7 +3254,7 @@
     (pin "2" (uuid 9221ee56-e48f-4c3e-960d-98c51284e747))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW5") (unit 1)
         )
       )
@@ -3262,7 +3270,7 @@
     (property "Value" "SA1" (at 44.45 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 67.31 0)
@@ -3272,7 +3280,7 @@
     (pin "2" (uuid 955278bf-3d3d-468e-80e4-1cfccbd92a6c))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW26") (unit 1)
         )
       )
@@ -3288,7 +3296,7 @@
     (property "Value" "L" (at 157.48 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 54.61 0)
@@ -3298,7 +3306,7 @@
     (pin "2" (uuid 326349e0-49c8-455b-8afb-60b7256e5ddd))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW43") (unit 1)
         )
       )
@@ -3314,7 +3322,7 @@
     (property "Value" "SA1" (at 133.35 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 92.71 0)
@@ -3324,7 +3332,7 @@
     (pin "2" (uuid f82cbba1-812a-4efa-9fd0-d8d4b24c873e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW78") (unit 1)
         )
       )
@@ -3337,10 +3345,10 @@
     (property "Reference" "SW24" (at 31.75 66.04 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Value" "SA1" (at 31.75 68.58 90)
+    (property "Value" "lshift" (at 31.75 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 67.31 0)
@@ -3350,7 +3358,7 @@
     (pin "2" (uuid 94530ecd-1494-4860-a97c-f37e185f0a2f))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW24") (unit 1)
         )
       )
@@ -3366,7 +3374,7 @@
     (property "Value" "SA1" (at 69.85 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 80.01 0)
@@ -3376,7 +3384,7 @@
     (pin "2" (uuid 6b529fb8-80c8-4e8c-912f-4d43649f3f04))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW57") (unit 1)
         )
       )
@@ -3392,7 +3400,7 @@
     (property "Value" "SA1" (at 82.55 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 67.31 0)
@@ -3402,7 +3410,7 @@
     (pin "2" (uuid ac76533d-b144-4f3f-aa83-18e7cb80ca22))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW32") (unit 1)
         )
       )
@@ -3418,7 +3426,7 @@
     (property "Value" "SA1" (at 120.65 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 29.21 0)
@@ -3428,7 +3436,7 @@
     (pin "2" (uuid 331d395f-7718-48e9-9942-929307cc423e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW8") (unit 1)
         )
       )
@@ -3444,7 +3452,7 @@
     (property "Value" "SA1" (at 44.45 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 92.71 0)
@@ -3454,7 +3462,7 @@
     (pin "2" (uuid 71c8c531-67fa-4a71-8df9-95ce0a39bf1d))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW50") (unit 1)
         )
       )
@@ -3470,7 +3478,7 @@
     (property "Value" "SA1" (at 69.85 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 105.41 0)
@@ -3480,7 +3488,7 @@
     (pin "2" (uuid 0767c373-b277-4010-8b18-d4f025576fdc))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW59") (unit 1)
         )
       )
@@ -3496,7 +3504,7 @@
     (property "Value" "SA1" (at 157.48 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 92.71 0)
@@ -3506,7 +3514,7 @@
     (pin "2" (uuid cff74406-bff0-4c82-91f6-71af3d561b4e))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW86") (unit 1)
         )
       )
@@ -3522,7 +3530,7 @@
     (property "Value" "SA1" (at 69.85 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 54.61 0)
@@ -3532,7 +3540,7 @@
     (pin "2" (uuid 68feb758-5c69-4281-93ee-b548be08ebb9))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW29") (unit 1)
         )
       )
@@ -3548,7 +3556,7 @@
     (property "Value" "SA1" (at 144.78 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 153.67 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 153.67 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 153.67 67.31 0)
@@ -3558,7 +3566,7 @@
     (pin "2" (uuid fd71130d-4f7d-48af-98a6-9a410f05d1de))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW42") (unit 1)
         )
       )
@@ -3574,7 +3582,7 @@
     (property "Value" "SA1" (at 82.55 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 80.01 0)
@@ -3584,7 +3592,7 @@
     (pin "2" (uuid b2f08844-c3b4-4958-9ee3-3a51946b80bd))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW61") (unit 1)
         )
       )
@@ -3600,7 +3608,7 @@
     (property "Value" "SA1" (at 95.25 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 67.31 0)
@@ -3610,7 +3618,7 @@
     (pin "2" (uuid 06060dd7-a423-4f05-9a05-696e302ffbf8))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW34") (unit 1)
         )
       )
@@ -3626,7 +3634,7 @@
     (property "Value" "SA1" (at 107.95 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 54.61 0)
@@ -3636,7 +3644,7 @@
     (pin "2" (uuid 06594f0f-7c49-4906-be06-5de95d4dcad2))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW35") (unit 1)
         )
       )
@@ -3652,7 +3660,7 @@
     (property "Value" "SA1" (at 133.35 43.18 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 140.97 41.91 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 140.97 41.91 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 140.97 41.91 0)
@@ -3662,7 +3670,7 @@
     (pin "2" (uuid 150a5d70-cc86-4f03-a269-3bbd28fa7848))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW20") (unit 1)
         )
       )
@@ -3678,7 +3686,7 @@
     (property "Value" "SA1" (at 31.75 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 105.41 0)
@@ -3688,7 +3696,7 @@
     (pin "2" (uuid 4a2c72e4-9443-4c07-ac7a-dcb949cb19ec))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW47") (unit 1)
         )
       )
@@ -3704,7 +3712,7 @@
     (property "Value" "SA1" (at 57.15 106.68 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 105.41 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 105.41 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 105.41 0)
@@ -3714,7 +3722,7 @@
     (pin "2" (uuid b822a0fa-76ef-4a49-b181-d797264b5f6b))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW55") (unit 1)
         )
       )
@@ -3730,7 +3738,7 @@
     (property "Value" "SA1" (at 57.15 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 67.31 0)
@@ -3740,7 +3748,7 @@
     (pin "2" (uuid c033c86a-8fb7-4b4f-9623-f4e0b1e14bba))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW28") (unit 1)
         )
       )
@@ -3756,7 +3764,7 @@
     (property "Value" "SA1" (at 157.48 81.28 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 166.37 80.01 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 166.37 80.01 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 166.37 80.01 0)
@@ -3766,7 +3774,7 @@
     (pin "2" (uuid db392380-3bdd-48b1-8bd5-020a526e99f8))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW85") (unit 1)
         )
       )
@@ -3782,7 +3790,7 @@
     (property "Value" "SA1" (at 82.55 55.88 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 90.17 54.61 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 90.17 54.61 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 90.17 54.61 0)
@@ -3792,7 +3800,7 @@
     (pin "2" (uuid bb43623c-0283-492e-8222-dc4b14d9e47c))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW31") (unit 1)
         )
       )
@@ -3808,17 +3816,17 @@
     (property "Value" "ESC" (at 44.45 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 52.07 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 52.07 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 52.07 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "1" (uuid a6866ee7-6772-424a-bba0-2ee01d1d0bad))
-    (pin "2" (uuid 9f1448d5-e594-4936-931b-a72da72ab76e))
+    (pin "1" (uuid 1ba6d260-1f3f-45d8-8177-1ef3f32dcaf5))
+    (pin "2" (uuid 8bd528a8-4d0b-4543-b822-d34893e4a0cd))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW2") (unit 1)
         )
       )
@@ -3834,7 +3842,7 @@
     (property "Value" "SA1" (at 69.85 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 77.47 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 77.47 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 77.47 92.71 0)
@@ -3844,7 +3852,7 @@
     (pin "2" (uuid e6124e92-96db-44c5-b983-b1c89a7ade92))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW58") (unit 1)
         )
       )
@@ -3860,7 +3868,7 @@
     (property "Value" "SA1" (at 120.65 68.58 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 128.27 67.31 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 128.27 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 128.27 67.31 0)
@@ -3870,7 +3878,7 @@
     (pin "2" (uuid 34422f5f-1707-435f-ba94-2247e94df013))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW38") (unit 1)
         )
       )
@@ -3886,7 +3894,7 @@
     (property "Value" "SA1" (at 95.25 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 102.87 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 102.87 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 102.87 92.71 0)
@@ -3896,7 +3904,7 @@
     (pin "2" (uuid c365ce73-53c1-4f70-aae3-ff816c4bc140))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW66") (unit 1)
         )
       )
@@ -3912,7 +3920,7 @@
     (property "Value" "SA1" (at 31.75 93.98 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 39.37 92.71 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 39.37 92.71 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 39.37 92.71 0)
@@ -3922,7 +3930,7 @@
     (pin "2" (uuid b52796a2-ab2b-4117-bc0d-606a67e442da))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW46") (unit 1)
         )
       )
@@ -3938,7 +3946,7 @@
     (property "Value" "SA1" (at 57.15 30.48 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 64.77 29.21 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 64.77 29.21 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 64.77 29.21 0)
@@ -3948,7 +3956,7 @@
     (pin "2" (uuid 28dd0f0e-c59e-4f42-a192-2aabf5318ca6))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW3") (unit 1)
         )
       )
@@ -3964,7 +3972,7 @@
     (property "Value" "SA1" (at 107.95 119.38 90)
       (effects (font (size 1.27 1.27)) (justify right))
     )
-    (property "Footprint" "" (at 115.57 118.11 0)
+    (property "Footprint" "Button_Switch_Keyboard:SW_Cherry_MX_1.00u_Plate" (at 115.57 118.11 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 115.57 118.11 0)
@@ -3974,7 +3982,7 @@
     (pin "2" (uuid eb23bd44-8559-4f21-a7f6-210095234448))
     (instances
       (project "klaviatar_pcb"
-        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/30fb8adf-a27a-4c12-9340-401f401d307b"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2/a88c7221-6865-4051-8095-bbab0aba0792"
           (reference "SW72") (unit 1)
         )
       )

@@ -2526,6 +2526,23 @@
     )
   )
 
+  (sheet (at 203.2 31.75) (size 49.53 20.32) (fields_autoplaced)
+    (stroke (width 0.1524) (type solid))
+    (fill (color 0 0 0 0.0000))
+    (uuid a88c7221-6865-4051-8095-bbab0aba0792)
+    (property "Sheetname" "Keyboard" (at 203.2 31.0384 0)
+      (effects (font (size 1.27 1.27)) (justify left bottom))
+    )
+    (property "Sheetfile" "keyboard.kicad_sch" (at 203.2 52.6546 0)
+      (effects (font (size 1.27 1.27)) (justify left top))
+    )
+    (instances
+      (project "klaviatar_pcb"
+        (path "/dac1fbdd-4b4f-4871-b040-711665a635b2" (page "2"))
+      )
+    )
+  )
+
   (sheet_instances
     (path "/" (page "1"))
   )

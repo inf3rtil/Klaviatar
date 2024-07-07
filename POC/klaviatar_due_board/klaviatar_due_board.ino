@@ -4,78 +4,38 @@
 #define KEY_FUNC 0x01
 
 #define MACRO_MODE
-#define LAYOUT_MODE_COMPAT
 
 #define PIC_nMCLR 9
 
-#ifdef LAYOUT_MODE_REAL
-const uint8_t keyMap[12][9] = {
-  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_SHIFT, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                              //0
-  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_ALT, KEY_LEFT_CTRL, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
-  { '1', 'q', 'a', 'z', KEY_FUNC, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                       //2
-  { KEY_F1, '2', 'w', 's', 'x', KEY_KP_4, '5', 0, '6' },                                                   //3
-  { KEY_F2, '3', 'e', 'd', 'c', KEY_NUM_LOCK, KEY_F8, 0, KEY_F9 },                                         //4
-  { KEY_F3, '4', 'r', 'f', 'v', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                        //5
-  { '5', 't', 'g', 'b', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                       //6
-  { KEY_F4, '6', 'y', 'h', 'n', KEY_DOWN_ARROW, KEY_UP_ARROW, '\\', 0 },                                   //7
-  { KEY_F5, '7', 'u', 'j', 'm', '`', ']', 0, '=' },                                                        //8
-  { '8', 'i', 'k', ',', KEY_LEFT_ARROW, '[', 0, '-', 0 },                                                  //9
-  { '9', 'o', 'l', '.', '/', ';', 'p', '0', 0 },                                                           //10
-  { KEY_F10, 0, 0, 0, 0, 0, 0, 0, 0 },                                                                     //11
+const uint8_t keyMap[12][9] = {                          
+  { 0, KEY_KP_9, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },
+  { 0, KEY_KP_PLUS, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },                                    
+  { 0, KEY_KP_3, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'z', 'a', 'q', '1' },         
+  { 0, KEY_KP_6, KEY_KP_5, KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                       
+  { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                       
+  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'v', 'f', 'r', '4', KEY_F3 },                                     
+  { 0, 0xFF, KEY_RETURN, KEY_RIGHT_ARROW, ' ', 'b', 'g', 't', '5' },                                       
+  { 0, '\\', KEY_UP_ARROW, KEY_DOWN_ARROW, 'n', 'h', 'y', '6', KEY_F4 },                                              
+  { 0, '=', ']', '`', 'm', 'j', 'u', '7', KEY_F5 },                                     
+  { 0, '-', '[', '\'', KEY_LEFT_ARROW, ',', 'k', 'i', '8' },                                                  
+  { 0, '0', 'p', ';', '/', '.', 'l', 'o', '9' },                                                           
+  { 0, 0, 0, 0, 0, 0, 0, 0, KEY_F10 }                                                                     
 };
 
-const uint8_t altKeyMap[12][9] = {
-  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_SHIFT, KEY_KP_7, KEY_KP_8, KEY_KP_9, 0 },                              //0
-  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_ALT, KEY_LEFT_CTRL, KEY_KP_0, KEY_KP_DOT, KEY_KP_PLUS, 0 },  //1
-  { '!', 'Q', 'A', 'Z', KEY_FUNC, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                       //2
-  { KEY_F1, '@', 'W', 'S', 'X', KEY_KP_4, KEY_KP_5, 0, KEY_KP_6 },                                         //3
-  { KEY_F2, '#', 'E', 'D', 'C', KEY_NUM_LOCK, KEY_F8, 0, KEY_F11 },                                        //4
-  { KEY_F3, '$', 'R', 'F', 'V', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                        //5
-  { '%', 'T', 'G', 'B', ' ', 0, KEY_RETURN, 0xFF, 0 },                                                     //6
-  { KEY_F4, '^', 'Y', 'H', 'N', 0, KEY_UP_ARROW, 0, '|' },                                                 //7
-  { KEY_F5, '&', 'U', 'J', 'M', '~', ']', 0, '+' },                                                        //8
-  { '*', 'I', 'K', '<', KEY_LEFT_ARROW, '¨','{', 0, '_'},                                                  //9
-  { '(', 'O', 'L', '>', '?', ':', 'P', 0, ')' },                                                           //10
-  { 0, 0, 0, 0, 0, 0, 0, KEY_F12, 0 }                                                                      //11
-
+const uint8_t altKeyMap[12][9] = {                          
+  { 0, KEY_KP_9, KEY_KP_8, KEY_KP_7, KEY_LEFT_CTRL, 0, 0, 0, KEY_KP_MINUS },
+  { 0, KEY_KP_PLUS, KEY_KP_DOT, KEY_KP_0, KEY_LEFT_SHIFT, KEY_LEFT_ALT, KEY_CAPS_LOCK, KEY_TAB, KEY_ESC },                                    
+  { 0, KEY_KP_3, KEY_KP_2, KEY_KP_1, KEY_FUNC, 'z', 'a', 'q', '1' },         
+  { 0, KEY_KP_6, KEY_KP_5, KEY_KP_4, 'x', 's', 'w', '2', KEY_F1 },                                       
+  { KEY_F9, 0, KEY_F8, KEY_NUM_LOCK, 'c', 'd', 'e', '3', KEY_F2 },                                       
+  { KEY_F6, 0, KEY_F7, KEY_BACKSPACE, 'v', 'f', 'r', '4', KEY_F3 },                                     
+  { 0, 0xFF, KEY_RETURN, KEY_RIGHT_ARROW, ' ', 'b', 'g', 't', '5' },                                       
+  { 0, '\\', KEY_UP_ARROW, KEY_DOWN_ARROW, 'n', 'h', 'y', '6', KEY_F4 },                                              
+  { 0, '=', ']', '`', 'm', 'j', 'u', '7', KEY_F5 },                                     
+  { 0, '-', '[', '\'', KEY_LEFT_ARROW, ',', 'k', 'i', '8' },                                                  
+  { 0, '0', 'p', ';', '/', '.', 'l', 'o', '9' },                                                           
+  { 0, 0, 0, 0, 0, 0, 0, 0, KEY_F10 }                                                                  
 };
-#endif
-
-#ifdef LAYOUT_MODE_COMPAT
-
-const uint8_t keyMap[12][9] = {
-  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_CTRL, KEY_KP_7, KEY_KP_8, KEY_KP_9, 0 },                            //0
-  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_FUNC, KEY_LEFT_SHIFT, KEY_KP_0, KEY_KP_DOT, KEY_KP_PLUS, 0 },  //1
-  { '1', 'q', 'a', 'z', KEY_LEFT_ALT, KEY_KP_1, KEY_KP_2, KEY_KP_3, 0 },                                //2
-  { KEY_F1, '2', 'w', 's', 'x', KEY_KP_4, '5', KEY_KP_6, },                                                //3
-  { KEY_F2, '3', 'e', 'd', 'c', KEY_NUM_LOCK, KEY_F8, KEY_F9, 0 },                                      //4
-  { KEY_F3, '4', 'r', 'f', 'v', KEY_BACKSPACE, KEY_F7,  KEY_F6, 0 },                                     //5
-  { '5', 't', 'g', 'b', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                    //6
-  { KEY_F4, '6', 'y', 'h', 'n', KEY_DOWN_ARROW, KEY_UP_ARROW, '\\', 0 },                                //7
-  { KEY_F5, '7', 'u', 'j', 'm', '`', ']', '=', 0 },                                                     //8
-  { '8', 'i', 'k', ',', KEY_LEFT_ARROW, '\'', '[', '-', 0 },                                                  //9
-  { '9', 'o', 'l', '.', '/', ';', 'p', '0', 0 },                                                        //10
-  { 0, 0, 0, 0, 0, 0, 0, 0, KEY_F10 }                                                                   //11
-
-};
-
-const uint8_t altKeyMap[12][9] = {
-  { KEY_KP_MINUS, 0, 0, 0, KEY_LEFT_CTRL, KEY_KP_7, KEY_KP_8, 0, KEY_KP_9 },                            //0
-  { KEY_ESC, KEY_TAB, KEY_CAPS_LOCK, KEY_LEFT_SHIFT, KEY_FUNC, KEY_KP_0, KEY_KP_DOT, 0, KEY_KP_PLUS },  //1
-  { '!', 'Q', 'A', 'Z', KEY_LEFT_ALT, KEY_KP_1, KEY_KP_2, 0, KEY_KP_3 },                                //2
-  { KEY_F1, '@', 'W', 'S', 'X', KEY_KP_4, KEY_KP_5, 0, KEY_KP_6 },                                      //3
-  { KEY_F2, '#', 'E', 'D', 'C', KEY_NUM_LOCK, KEY_F8, 0, KEY_F11 },                                     //4
-  { KEY_F3, '$', 'R', 'F', 'V', KEY_BACKSPACE, KEY_F7, 0, KEY_F6 },                                     //5
-  { '%', 'T', 'G', 'B', ' ', KEY_RIGHT_ARROW, KEY_RETURN, 0xFF, 0 },                                    //6
-  { KEY_F4, '^', 'Y', 'H', 'N', 0, KEY_UP_ARROW, 0, '|' },                                              //7
-  { KEY_F5, '&', 'U', 'J', 'M', '~', ']', 0, '+' },                                                     //8
-  { '*', 'I', 'K', '<', KEY_LEFT_ARROW, '{', 0, '_' },                                                  //9
-  { '(', 'O', 'L', '>', '?', ':', 'P', 0, ')' },                                                        //10
-  { 0, 0, 0, 0, 0, 0, 0, KEY_F12, 0 }                                                                   //11
-};
-#endif
-
-
 
 typedef struct {
   uint8_t id;

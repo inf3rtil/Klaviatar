@@ -6,8 +6,8 @@
 
 // CONFIG1H
 #pragma config FOSC = INTOSC_HS        // Oscillator Selection bits (HS oscillator (HS))
-#pragma config FCMEN = ON       // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor enabled)
-#pragma config IESO = ON        // Internal/External Oscillator Switchover bit (Oscillator Switchover mode enabled)
+#pragma config FCMEN = OFF       // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor enabled)
+#pragma config IESO = OFF        // Internal/External Oscillator Switchover bit (Oscillator Switchover mode enabled)
 
 // CONFIG2L
 #pragma config PWRT = ON        // Power-up Timer Enable bit (PWRT enabled)
@@ -20,7 +20,7 @@
 #pragma config WDTPS = 32768    // Watchdog Timer Postscale Select bits (1:32768)
 
 // CONFIG3H
-#pragma config CCP2MX = ON      // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
+#pragma config CCP2MX = OFF      // CCP2 MUX bit (CCP2 input/output is multiplexed with RC1)
 #pragma config PBADEN = OFF      // PORTB A/D Enable bit (PORTB<4:0> pins are configured as analog input channels on Reset)
 #pragma config LPT1OSC = OFF    // Low-Power Timer 1 Oscillator Enable bit (Timer1 configured for higher power operation)
 #pragma config MCLRE = OFF       // MCLR Pin Enable bit (MCLR pin enabled; RE3 input pin disabled)
@@ -73,11 +73,11 @@
 
 //#define DEBUG_PRESS_KEY
 //#define DEBUG_X_SCAN
-#define DEBUG_Y_SCAN
+//#define DEBUG_Y_SCAN
 
 typedef struct{
   uint8_t pressed;
-  uint8_t x;
+  uint8_t x; 
   uint16_t y;
 }Key_t;
 
@@ -112,7 +112,7 @@ void pressKey(Key_t key){
   if(keyIsPressed(key) == -1){
     addPressedKey(key);
 #ifdef DEBUG_PRESS_KEY
-    printf("PRESS: x=%02d y=%02d\r\n", key.x+1, key.y+1);
+    printf("PRESS: x=%02d y=%02d\r\n", key.x, key.y);
 #else
     printf("P%02d%02d;", key.x, key.y);
 #endif
@@ -124,7 +124,7 @@ void releaseKey(Key_t key){
   if(pressedPos >= 0){
     removePressedKey(pressedPos);
 #ifdef DEBUG_PRESS_KEY
-    printf("RELEASE: x=%02d y=%02d\r\n", key.x+1, key.y+1);
+    printf("RELEASE: x=%02d y=%02d\r\n", key.x, key.y);
 #else
     printf("R%02d%02d;", key.x, key.y);
 #endif
@@ -171,16 +171,6 @@ void initUsart(){
 
 
 // refactor
-void initTimer(){
-  T0CS=0; // fosc/4 = 2764800 Hz
-  PSA = 0;
-  T0PS0 = 1;
-  T0PS1 = 1;
-  T0PS2 = 1;
-}
-
-
-// refactor
 void setXpos(uint8_t x){
   TRISC=0xFF;
   PORTC=0xFF;
@@ -204,10 +194,18 @@ void setXpos(uint8_t x){
     port = (uint8_t)~(1U << x);
     TRISC = tris;
     PORTC = port;
+    #ifdef DEBUG_X_SCAN
+    printf("PORTC_SCAN-X=%d, T=%x, P=%x\r\n", x, tris, port);
+    __delay_ms(500);
+    #endif
   }
   else{
     TRISE=0;
     PORTE=0;
+    #ifdef DEBUG_X_SCAN
+    printf("PORTE_SCAN-X=%d, T=%x, P=%x\r\n", x, tris, port);
+    __delay_ms(500);
+    #endif
   }
 }
 
@@ -218,47 +216,41 @@ uint8_t readYpos(uint8_t y){
   TRISA=0xFF;
   if(y < 6){
     ret = (PORTB >> y) & 1;
-    __delay_us(500);
+    //__delay_us(500);
   }
   else {
     y = y - 6;
     ret = (PORTA >> y) & 1;
-    __delay_us(500);
+    //__delay_us(500);
   }
   return ret;
 }
 
 
-void sendKeepAlive(){
-  static uint32_t time=0;
-  if(TMR0IF){
-    TMR0IF = 0;
-    time++;
-  }
-  if(time > 50){
-    printf("L;");
-    time = 0;
-    }
-}
 
 
-void scanKeyboard(){
+void scanKeyboard()
+{
   const uint8_t xMax=12; //12
   const uint8_t yMax=9; //9
   Key_t key;
   uint8_t ret;
 
-  for(uint8_t x=0; x < xMax; x++){
+  for(uint8_t x=0; x < xMax; x++)
+  {
     setXpos(x);
     key.x = x;
-    for(uint8_t y=0; y < yMax; y++){
+    for(uint8_t y=0; y < yMax; y++)
+    {
       key.y = y;
       ret = readYpos(y);
-      if(ret == 0){
-	pressKey(key);
+      if(ret == 0)
+      {
+        pressKey(key);
       }
-      else{
-	releaseKey(key);
+      else
+      {
+        releaseKey(key);
       }
     }
   }
@@ -271,11 +263,11 @@ void main(void) {
   uint8_t rcon=RCON;
   initPic();
   initUsart();
-  initTimer();
+  //initTimer();
   printf("boot:%x\r\n", rcon);
   while(1){
     scanKeyboard();
-    sendKeepAlive();
+    //sendKeepAlive();
   }
   return;
 }
